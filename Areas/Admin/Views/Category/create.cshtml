@@ -1,0 +1,49 @@
+﻿@model Category
+@if(@TempData["success"]!= null){
+<h2> TempData["success"] </h2>
+}
+<form method="post" style="border-color:black">
+    <div class="border p-3 mt-4">
+        <div class="row p-3">
+           <h2> Add Data </h2>
+           <hr/>
+        </div>
+        @*<div class="row m-3">
+            <label asp-for="Id"></label>
+            <input asp-for="Id" class="form-control"/>
+
+        </div>*@
+        <div class="row m-3">
+            <label asp-for="Salary"></label>
+            <input asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+
+        </div>
+        <div class="row m-3">
+            <label asp-for="FutureSalary"></label>
+            <input asp-for="FutureSalary" class="form-control" />
+            <span asp-validation-for="FutureSalary" class="text-danger"></span>
+
+
+        </div>
+        <button class="btn btn-primary m-5" type="submit" style="width:200px"> 
+            Add </button>
+        <button class="btn btn-primary m-5" type="submit" style=" width:200px " asp-action="index" asp-controller="Category"> Back </button>
+
+    </div>
+    
+
+
+
+
+
+
+
+
+</form>
+
+@section scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

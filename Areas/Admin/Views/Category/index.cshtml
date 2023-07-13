@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Category>
+
+<h1 style="margin-top:30px"> Employee Detail </h1>
+
+<div class="container p-4">
+    <div class="row p-3">
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+            <a class="btn btn-primary" asp-action="Create" asp-controller="Category" >
+                <i class="bi bi-plus-square"></i>    Add New Data
+            </a>
+        </div>
+    </div>
+</div>
+
+@*<div class="container p-4">
+    <div class="row p-3">
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+            <a class="btn btn-primary" asp-action="CreateUpdate" asp-controller="Category">
+                <i class="bi bi-plus-square"></i><i class="bi bi-pencil-square"></i>Add Data & Update data 
+            </a>
+        </div>
+    </div>
+</div>*@
+<table class="table table-bordered table-striped " style="width :800px " >
+    <thead style=" margin-top:auto"> 
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                Future Salary
+            </th>
+            <th>
+                Action
+            </th>
+           
+        </tr>   
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Salary
+                </td>
+                <td>
+                    @item.FutureSalary
+                </td>
+                <td role="group">
+                 <a asp-action="Edit" asp-controller="Category" asp-route-id="@item.Id"> <i class="bi bi-pencil-square"></i></a>
+                    <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                 
+
+
+                </td>
+            
+            </tr>
+        }
+    </tbody>
+
+</table>
